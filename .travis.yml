@@ -13,8 +13,10 @@ script:
     - docker build -t fulltilt/multi-nginx ./nginx
     - docker build -t fulltilt/multi-server ./server
     - docker build -t fulltilt/multi-worker ./worker
+    
     # Log into Docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    
     # Take those images and push them to docker hub
     - docker push fulltilt/multi-client
     - docker push fulltilt/multi-nginx
